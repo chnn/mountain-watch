@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import LocationList from './LocationList';
 import LocationListLi from './LocationListLi';
 
-it('renders a LocationListLi for each passed location', () => {
+test('renders a LocationListLi for each passed location', () => {
   const locations = [{id: '1'}, {id: '2'}, {id: '3'}];
   const wrapper = shallow(<LocationList locations={locations} />);
 
