@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function LocationListLi(props) {
+export default function LocationListLi({location}) {
   return (
     <li>
-      <div className="name">{props.location.name}</div>
-      <div className="gps">{props.location.gps}</div>
+      <div className="name">{location.name}</div>
+      <div className="gps">{location.gps}</div>
     </li>
   )
 }

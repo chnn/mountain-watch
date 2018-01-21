@@ -10,7 +10,7 @@ test('doesnt call onCreate prop when input is empty', () => {
   wrapper.find('.gps input').simulate('change', {target: {value: ''}});
   wrapper.find('button[type="submit"]').simulate('submit');
 
-  expect(mockOnCreate.mock.calls.length).toBe(0);
+  expect(mockOnCreate).toHaveBeenCalledTimes(0);
 });
 
 test('calls onCreate prop when submit button is pressed', () => {
@@ -21,6 +21,6 @@ test('calls onCreate prop when submit button is pressed', () => {
   wrapper.find('.gps input').simulate('change', {target: {value: 'test gps coordinate'}});
   wrapper.find('button[type="submit"]').simulate('submit');
 
-  expect(mockOnCreate.mock.calls.length).toBe(1);
+  expect(mockOnCreate).toHaveBeenCalledTimes(1);
 });
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import LocationList from '../components/LocationList';
+import VisibleLocationList from '../containers/VisibleLocationList';
 import LocationThumbnails from './LocationThumbnails';
 
-test('renders a LocationList', () => {
+test('renders a VisibleLocationList', () => {
   const wrapper = shallow(<App />);
 
-  expect(wrapper.find(LocationList).length).toEqual(1);
+  expect(wrapper.find(VisibleLocationList).length).toEqual(1);
 });
 
 test('renders a LocationThumbnails', () => {
