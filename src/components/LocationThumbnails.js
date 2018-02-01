@@ -1,5 +1,6 @@
 import React from 'react'
 import LocationThumbnail from './LocationThumbnail'
+import './LocationThumbnails.css'
 
 export default function LocationThumbnails(props) {
   const thumbnails = props.locationImages.map(image => (

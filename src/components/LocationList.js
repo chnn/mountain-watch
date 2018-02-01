@@ -2,6 +2,7 @@ import React from 'react'
 import Modal from './Modal'
 import LocationListLi from './LocationListLi'
 import LocationCreator from './LocationCreator'
+import './LocationList.css'
 
 export default function LocationList(props) {
   const listItems = props.locations.map(location => (

@@ -1,0 +1,13 @@
+.root, .app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.app .location-list {
+  flex: 0 0 300px;
+}
+
+.app .location-thumbnails {
+  flex: 1 1 auto;
+}
