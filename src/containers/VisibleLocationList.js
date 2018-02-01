@@ -10,7 +10,10 @@ function mapDispatchToProps(dispatch) {
   return {
     onShowLocationCreator: () => dispatch(setAddingLocation(true)),
     onHideLocationCreator: () => dispatch(setAddingLocation(false)),
-    onLocationCreate: location => dispatch(addNewLocation(location)),
+    onLocationCreate: location => {
+      dispatch(addNewLocation(location))
+      dispatch(setAddingLocation(false))
+    },
   }
 }
 
