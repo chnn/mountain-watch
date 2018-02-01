@@ -1,9 +1,5 @@
-import React from 'react';
+import React from 'react'
 
 export default function Modal(props) {
-  return (
-    <div className="modal">
-      {props.children}
-    </div>
-  )
+  return <div className="modal">{props.children}</div>
 }

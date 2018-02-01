@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import LocationList from '../components/LocationList';
-import { addNewLocation, setAddingLocation } from '../actions';
+import {connect} from 'react-redux'
+import LocationList from '../components/LocationList'
+import {addNewLocation, setAddingLocation} from '../actions'
 
 function mapStateToProps({locations, isAddingNewLocation}) {
-  return {locations, isAddingNewLocation};
+  return {locations, isAddingNewLocation}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -14,6 +14,8 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const VisibleLocationList = connect(mapStateToProps, mapDispatchToProps)(LocationList);
+const VisibleLocationList = connect(mapStateToProps, mapDispatchToProps)(
+  LocationList
+)
 
-export default VisibleLocationList;
+export default VisibleLocationList
