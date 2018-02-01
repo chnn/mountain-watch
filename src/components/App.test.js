@@ -2,7 +2,7 @@ import React from 'react'
 import {shallow} from 'enzyme'
 import App from './App'
 import VisibleLocationList from '../containers/VisibleLocationList'
-import LocationThumbnails from './LocationThumbnails'
+import VisibleLocationThumbnails from '../containers/VisibleLocationThumbnails'
 
 test('renders a VisibleLocationList', () => {
   const wrapper = shallow(<App />)
@@ -10,8 +10,8 @@ test('renders a VisibleLocationList', () => {
   expect(wrapper.find(VisibleLocationList).length).toEqual(1)
 })
 
-test('renders a LocationThumbnails', () => {
+test('renders a VisibleLocationThumbnails', () => {
   const wrapper = shallow(<App />)
 
-  expect(wrapper.find(LocationThumbnails).length).toEqual(1)
+  expect(wrapper.find(VisibleLocationThumbnails).length).toEqual(1)
 })

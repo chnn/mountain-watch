@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
 import VisibleLocationList from '../containers/VisibleLocationList'
-import LocationThumbnails from './LocationThumbnails'
+import VisibleLocationThumbnails from '../containers/VisibleLocationThumbnails'
 
 export default function App() {
   return (
-    <div>
+    <div className="app">
       <VisibleLocationList />
-      <LocationThumbnails />
+      <VisibleLocationThumbnails />
     </div>
   )
 }
