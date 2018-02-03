@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import LocationList from '../components/LocationList'
-import {addNewLocation, setAddingLocation} from '../actions'
+import {addNewLocations, setAddingLocation} from '../actions'
 
 function mapStateToProps({locations, isAddingNewLocation}) {
   return {locations, isAddingNewLocation}
@@ -11,14 +11,13 @@ function mapDispatchToProps(dispatch) {
     onShowLocationCreator: () => dispatch(setAddingLocation(true)),
     onHideLocationCreator: () => dispatch(setAddingLocation(false)),
     onLocationCreate: location => {
-      dispatch(addNewLocation(location))
+      dispatch(addNewLocations([location]))
       dispatch(setAddingLocation(false))
+    },
+    onLocationLoadError: e => {
+      throw new Error(e)
     },
   }
 }
 
-const VisibleLocationList = connect(mapStateToProps, mapDispatchToProps)(
-  LocationList
-)
-
-export default VisibleLocationList
+export default connect(mapStateToProps, mapDispatchToProps)(LocationList)

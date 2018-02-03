@@ -5,19 +5,25 @@ import {shallow, mount} from 'enzyme'
 import Modal from './Modal'
 import LocationList from './LocationList'
 import LocationListLi from './LocationListLi'
+import LoadingSpinner from './LoadingSpinner'
 
-test('renders a LocationListLi for each passed location', () => {
-  const locations = [{id: '1'}, {id: '2'}, {id: '3'}]
-  const wrapper = shallow(<LocationList locations={locations} />)
+test('renders a LocationListLi for each location if locations done', () => {
+  const fakeLocations = {
+    status: 'done',
+    data: [{id: '1'}, {id: '2'}, {id: '3'}],
+    error: null,
+  }
+  const wrapper = shallow(<LocationList locations={fakeLocations} />)
 
   expect(wrapper.find(LocationListLi).length).toBe(3)
 })
 
 test('should display a modal with when isAddingNewLocation', () => {
+  const fakeLocations = {status: 'done', data: [], error: null}
   const mockOnHideLocationCreator = jest.fn()
 
   let wrapper = shallow(
-    <LocationList locations={[]} isAddingNewLocation={false} />
+    <LocationList locations={fakeLocations} isAddingNewLocation={false} />
   )
 
   // No modal shows when not adding location
@@ -25,7 +31,7 @@ test('should display a modal with when isAddingNewLocation', () => {
 
   wrapper = mount(
     <LocationList
-      locations={[]}
+      locations={fakeLocations}
       isAddingNewLocation={true}
       onHideLocationCreator={mockOnHideLocationCreator}
     />
@@ -41,12 +47,37 @@ test('should display a modal with when isAddingNewLocation', () => {
 })
 
 test('should call onShowLocationCreator when button is clicked', () => {
-  const mockProp = jest.fn()
+  const fakeLocations = {status: 'done', data: [], error: null}
+  const mockOnShowLocationCreator = jest.fn()
   const wrapper = shallow(
-    <LocationList locations={[]} onShowLocationCreator={mockProp} />
+    <LocationList
+      locations={fakeLocations}
+      onShowLocationCreator={mockOnShowLocationCreator}
+    />
   )
 
   wrapper.find('button.show-location-creator').simulate('click')
 
-  expect(mockProp.mock.calls.length).toBe(1)
+  expect(mockOnShowLocationCreator.mock.calls.length).toBe(1)
+})
+
+test('should display a loading state if locations loading', () => {
+  const fakeLocations = {status: 'loading', data: null, error: null}
+  const wrapper = shallow(<LocationList locations={fakeLocations} />)
+
+  expect(wrapper.find(LoadingSpinner).length).toEqual(1)
+})
+
+test('should call onLocationLoadError if locations in error state', () => {
+  const fakeLocations = {status: 'failed', data: null, error: 'abc'}
+  const mockOnLocationLoadError = jest.fn()
+
+  shallow(
+    <LocationList
+      locations={fakeLocations}
+      onLocationLoadError={mockOnLocationLoadError}
+    />
+  )
+
+  expect(mockOnLocationLoadError.mock.calls[0][0]).toBe(fakeLocations.error)
 })

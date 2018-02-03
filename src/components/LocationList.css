@@ -1,5 +1,7 @@
 .location-list {
   padding: 20px;
+  background-color: #fcfcfc;
+  border-right: 1px solid #e9eef0;
 }
 
 .location-list li {

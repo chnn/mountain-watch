@@ -1,5 +1,9 @@
-import {isAddingNewLocation, locations as locationsReducer} from './reducers'
-import {setAddingLocation, addNewLocation} from './actions'
+import {
+  makeInitialRemoteDataState,
+  isAddingNewLocation,
+  locations as locationsReducer,
+} from './reducers'
+import {setAddingLocation, addNewLocations} from './actions'
 
 test('sets isAddingNewLocation correctly', () => {
   const result1 = isAddingNewLocation(false, setAddingLocation(true))
@@ -14,8 +18,18 @@ test('sets isAddingNewLocation correctly', () => {
 })
 
 test('adds a location successfully', () => {
-  const locations = [{id: '1'}, {id: '2'}]
-  const result = locationsReducer(locations, addNewLocation({id: '3'}))
+  const initialState = {
+    ...makeInitialRemoteDataState(),
+    data: [{id: '1'}, {id: '2'}],
+  }
 
-  expect(result).toContainEqual({id: '3'})
+  const result = locationsReducer(
+    initialState,
+    addNewLocations([{id: '3'}, {id: '4'}])
+  )
+
+  expect(result.data).toContainEqual({id: '1'})
+  expect(result.data).toContainEqual({id: '2'})
+  expect(result.data).toContainEqual({id: '3'})
+  expect(result.data).toContainEqual({id: '4'})
 })

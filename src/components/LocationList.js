@@ -2,16 +2,35 @@ import React from 'react'
 import Modal from './Modal'
 import LocationListLi from './LocationListLi'
 import LocationCreator from './LocationCreator'
+import LoadingSpinner from './LoadingSpinner'
 import './LocationList.css'
 
 export default function LocationList(props) {
-  const listItems = props.locations.map(location => (
+  const {locations, isAddingNewLocation} = props
+
+  if (locations.status === 'loading') {
+    return (
+      <div className="location-list">
+        <LoadingSpinner />
+      </div>
+    )
+  } else if (locations.status === 'failed') {
+    props.onLocationLoadError(locations.error)
+
+    return <div className="location-list"> </div>
+  } else if (locations.status === 'notStarted') {
+    // We expect this branch to never be hit, since the locations fetch is
+    // initiated when the app boots up
+    throw new Error('Expected store.locations to be started')
+  }
+
+  const listItems = locations.data.map(location => (
     <LocationListLi key={location.id} location={location} />
   ))
 
   let maybeModal
 
-  if (props.isAddingNewLocation) {
+  if (isAddingNewLocation) {
     maybeModal = (
       <Modal>
         <button className="close-modal" onClick={props.onHideLocationCreator}>
