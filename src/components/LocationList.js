@@ -25,7 +25,11 @@ export default function LocationList(props) {
   }
 
   const listItems = locations.data.map(location => (
-    <LocationListLi key={location.id} location={location} />
+    <LocationListLi
+      key={location.id}
+      location={location}
+      onClick={props.onSelectLocation}
+    />
   ))
 
   let maybeModal

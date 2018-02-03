@@ -81,3 +81,25 @@ test('should call onLocationLoadError if locations in error state', () => {
 
   expect(mockOnLocationLoadError.mock.calls[0][0]).toBe(fakeLocations.error)
 })
+
+test('should call onSelectLocation when a LocationListLi is clicked', () => {
+  const fakeLocations = {
+    status: 'done',
+    error: null,
+    data: [{id: '0'}, {id: '1'}, {id: '2'}],
+  }
+  const mockOnSelectLocation = jest.fn()
+  const wrapper = mount(
+    <LocationList
+      locations={fakeLocations}
+      onSelectLocation={mockOnSelectLocation}
+    />
+  )
+
+  wrapper
+    .find(LocationListLi)
+    .first()
+    .simulate('click')
+
+  expect(mockOnSelectLocation).toBeCalledWith(fakeLocations.data[0])
+})

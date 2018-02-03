@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import LocationList from '../components/LocationList'
-import {addNewLocations, setAddingLocation} from '../actions'
+import {addNewLocations, setAddingLocation, selectLocation} from '../actions'
 
 function mapStateToProps({locations, isAddingNewLocation}) {
   return {locations, isAddingNewLocation}
@@ -17,6 +17,7 @@ function mapDispatchToProps(dispatch) {
     onLocationLoadError: e => {
       throw new Error(e)
     },
+    onSelectLocation: location => dispatch(selectLocation(location)),
   }
 }
 

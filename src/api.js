@@ -34,7 +34,13 @@ const timeout = ms => {
 }
 
 export const fetchLocations = async () => {
-  await timeout(2000)
+  await timeout(1500)
 
   return LOCATIONS_FIXTURE
+}
+
+export const fetchImagesForLocation = async locationId => {
+  await timeout(1000)
+
+  return LOCATION_IMAGES_FIXTURE.filter(x => x.locationId === locationId)
 }
