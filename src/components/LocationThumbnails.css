@@ -10,6 +10,7 @@
   width: 150px;
   height: 150px;
   background: #e9eef0;
+  cursor: pointer;
 }
 
 .location-thumbnails .location-thumbnail img {

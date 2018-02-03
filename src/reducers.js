@@ -8,6 +8,7 @@ import {
   SET_SELECTED_LOCATION_IMAGES,
   SET_SELECTED_LOCATION_IMAGES_STATUS,
   SET_SELECTED_LOCATION_IMAGES_ERROR,
+  SET_SELECTED_IMAGE_ID,
 } from './actions'
 
 export const makeInitialRemoteDataState = dataDefault => {
@@ -88,9 +89,19 @@ export const selectedLocationImages = (
   }
 }
 
+export const selectedImageId = (state = null, {type, payload}) => {
+  switch (type) {
+    case SET_SELECTED_IMAGE_ID:
+      return payload
+    default:
+      return state
+  }
+}
+
 export const app = combineReducers({
   locations,
   isAddingNewLocation,
   selectedLocation,
   selectedLocationImages,
+  selectedImageId,
 })

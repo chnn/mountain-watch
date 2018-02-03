@@ -8,6 +8,7 @@ export const SET_SELECTED_LOCATION_IMAGES_STATUS =
   'SET_SELECTED_LOCATION_IMAGES_STATUS'
 export const SET_SELECTED_LOCATION_IMAGES_ERROR =
   'SET_SELECTED_LOCATION_IMAGES_ERROR'
+export const SET_SELECTED_IMAGE_ID = 'SET_SELECTED_IMAGE_ID'
 
 export const setAddingLocation = veracity => {
   return {
@@ -100,5 +101,19 @@ export const selectLocation = location => {
     } catch (e) {
       dispatch(setSelectedLocationImagesError(e))
     }
+  }
+}
+
+export const setSelectedImageId = id => {
+  return {
+    type: SET_SELECTED_IMAGE_ID,
+    payload: id,
+  }
+}
+
+export const closeSelectedImageModal = () => {
+  return {
+    type: SET_SELECTED_IMAGE_ID,
+    payload: null,
   }
 }

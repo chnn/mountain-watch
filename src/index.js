@@ -7,7 +7,7 @@ import * as api from './api'
 import {app as appReducer} from './reducers'
 import {loadLocations} from './actions'
 import './index.css'
-import App from './components/App'
+import ConnectedApp from './containers/ConnectedApp'
 
 const store = createStore(
   appReducer,
@@ -18,7 +18,7 @@ store.dispatch(loadLocations())
 
 render(
   <Provider store={store}>
-    <App />
+    <ConnectedApp />
   </Provider>,
   document.getElementById('root')
 )

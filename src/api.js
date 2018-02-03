@@ -52,7 +52,7 @@ const timeout = ms => {
 }
 
 export const fetchLocations = async () => {
-  await timeout(1500)
+  await timeout(1000)
 
   return LOCATIONS_FIXTURE
 }

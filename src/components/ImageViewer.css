@@ -1,0 +1,16 @@
+.image-viewer {
+  width: 600px;
+}
+
+.image-viewer button, .image-viewer img {
+  display: block;
+}
+
+.image-viewer .description {
+  margin: 15px 0 10px 0;
+}
+
+.image-viewer .description .user {
+  font-weight: bold;
+  padding-right: 5px;
+}

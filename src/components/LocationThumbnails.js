@@ -20,7 +20,15 @@ const LocationThumbnails = props => {
 
   return (
     <div className="location-thumbnails">
-      {data.map(image => <LocationThumbnail key={image.id} image={image} />)}
+      {data.map(image => {
+        return (
+          <LocationThumbnail
+            key={image.id}
+            image={image}
+            onClick={props.onSelectImage}
+          />
+        )
+      })}
     </div>
   )
 }
