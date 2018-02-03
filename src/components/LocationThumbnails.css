@@ -1,0 +1,17 @@
+.location-thumbnails {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.location-thumbnails .location-thumbnail {
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  background: #e9eef0;
+}
+
+.location-thumbnails .location-thumbnail img {
+  border-radius: 3px;
+}
