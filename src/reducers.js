@@ -14,7 +14,7 @@ export const makeInitialRemoteDataState = dataDefault => {
   }
 }
 
-export function isAddingNewLocation(state = false, {type, payload}) {
+export const isAddingNewLocation = (state = false, {type, payload}) => {
   switch (type) {
     case SET_ADDING_LOCATION:
       return payload
@@ -23,10 +23,10 @@ export function isAddingNewLocation(state = false, {type, payload}) {
   }
 }
 
-export function locations(
+export const locations = (
   state = makeInitialRemoteDataState([]),
   {type, payload}
-) {
+) => {
   switch (type) {
     case ADD_NEW_LOCATIONS:
       return {
@@ -49,17 +49,7 @@ export function locations(
   }
 }
 
-export function locationImages(state = []) {
-  return state
-}
-
-export function currentLocation(state = null) {
-  return state
-}
-
 export const app = combineReducers({
-  isAddingNewLocation,
-  currentLocation,
   locations,
-  locationImages,
+  isAddingNewLocation,
 })
