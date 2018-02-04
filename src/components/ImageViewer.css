@@ -2,12 +2,12 @@
   width: 600px;
 }
 
-.image-viewer button, .image-viewer img {
+.image-viewer img {
   display: block;
 }
 
 .image-viewer .description {
-  margin: 15px 0 10px 0;
+  margin: 25px 0 15px 0;
 }
 
 .image-viewer .description .user {

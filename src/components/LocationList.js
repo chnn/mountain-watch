@@ -36,10 +36,7 @@ export default function LocationList(props) {
 
   if (isAddingNewLocation) {
     maybeModal = (
-      <Modal>
-        <button className="close-modal" onClick={props.onHideLocationCreator}>
-          Close
-        </button>
+      <Modal onDismiss={props.onHideLocationCreator}>
         <LocationCreator onCreate={props.onLocationCreate} />
       </Modal>
     )

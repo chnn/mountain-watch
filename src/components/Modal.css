@@ -10,12 +10,30 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px 0 0;
+}
+
+.modal-header .dismiss-modal {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.modal-header .dismiss-modal:hover {
+  color: gray;
+}
+
 .modal-content {
-  padding: 40px;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid #e9eef0;
   background: #fcfcfc;
   max-width: 80%;
   max-height: 80%;
   overflow: scroll;
+}
+
+.modal-body {
+  padding: 20px 40px;
 }

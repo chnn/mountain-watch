@@ -11,11 +11,8 @@ export default function App({selectedImage, onCloseSelectedImageModal}) {
       <ConnectedLocationList />
       <ConnectedLocationThumbnails />
       {selectedImage && (
-        <Modal>
-          <ImageViewer
-            onDismiss={onCloseSelectedImageModal}
-            image={selectedImage}
-          />
+        <Modal onDismiss={onCloseSelectedImageModal}>
+          <ImageViewer image={selectedImage} />
         </Modal>
       )}
     </div>

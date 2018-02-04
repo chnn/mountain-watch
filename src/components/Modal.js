@@ -1,10 +1,21 @@
 import React from 'react'
 import './Modal.css'
 
-export default function Modal(props) {
+const Modal = ({children, onDismiss}) => {
   return (
     <div className="modal">
-      <div className="modal-content">{props.children}</div>
+      <div className="modal-content">
+        <div className="modal-header">
+          {onDismiss && (
+            <div className="dismiss-modal" onClick={onDismiss}>
+              &times;
+            </div>
+          )}
+        </div>
+        <div className="modal-body">{children}</div>
+      </div>
     </div>
   )
 }
+
+export default Modal
