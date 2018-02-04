@@ -2,8 +2,10 @@
   width: 600px;
 }
 
-.image-viewer img {
-  display: block;
+.image-viewer .image {
+  width: 600px;
+  height: 600px;
+  background: #e9eef0;
 }
 
 .image-viewer .description {
