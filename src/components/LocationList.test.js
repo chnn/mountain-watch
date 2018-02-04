@@ -40,7 +40,7 @@ test('should display a modal with when isAddingNewLocation', () => {
   // Modal shows when adding location
   expect(wrapper.find(Modal).length).toBe(1)
 
-  wrapper.find('button.close-modal').simulate('click')
+  wrapper.find('.dismiss-modal').simulate('click')
 
   // Clicking the close button on the modal calls the right prop
   expect(mockOnHideLocationCreator).toHaveBeenCalledTimes(1)
