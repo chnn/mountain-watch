@@ -1,0 +1,20 @@
+.location-creator {
+    width: 300px;
+}
+.location-creator .form-group {
+    margin-bottom: 30px;
+}
+
+.location-creator .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.location-creator .form-group input {
+    width: 100%;
+    border-radius: 3px;
+    border-style: none;
+    border: 1px solid #e9eef0;
+    padding: 10px 5px;
+    font-size: 14px;
+}
