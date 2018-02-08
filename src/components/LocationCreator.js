@@ -5,20 +5,17 @@ class LocationCreator extends Component {
   constructor(props) {
     super(props)
     this.state = {name: '', gps: ''}
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleGPSChange = this.handleGPSChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleNameChange(event) {
+  handleNameChange = event => {
     this.setState({name: event.target.value.trim()})
   }
 
-  handleGPSChange(event) {
+  handleGPSChange = event => {
     this.setState({gps: event.target.value.trim()})
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault()
 
     if (!this.inputIsValid()) {
